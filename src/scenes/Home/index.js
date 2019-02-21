@@ -32,15 +32,20 @@ class Home extends React.Component {
   render() {
     return (
       <View style={styles.panel}>
-	    <Text style={styles.title}>
+	  	<Text style={styles.title}>
+			Press any of these buttons
+		</Text>
+	    <Text style={styles.counter}>
             {this.state.num}
         </Text>
-		<VrButton onClick={this.plus} style={styles.button}>
-            <Text style={styles.buttonText}>{'+'}</Text>
-        </VrButton>
-		<VrButton onClick={this.minus} style={styles.button}>
-            <Text style={styles.buttonText}>{'-'}</Text>
-        </VrButton>
+		<View style={styles.buttonContainer}>
+			<VrButton onClick={this.minus} style={styles.button}>
+				<Text style={styles.buttonText}>{'-'}</Text>
+			</VrButton>
+			<VrButton onClick={this.plus} style={styles.button}>
+				<Text style={styles.buttonText}>{'+'}</Text>
+			</VrButton>
+		</View>
       </View>
     );
   }

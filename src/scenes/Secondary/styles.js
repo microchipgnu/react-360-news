@@ -5,7 +5,7 @@ import {
 const styles = StyleSheet.create({
 	panel: {
 		// Fill the entire surface
-		width: 1000,
+		width: 300,
 		height: 600,
 		backgroundColor: 'rgba(255, 255, 255, 0.4)',
 		justifyContent: 'center',
@@ -22,32 +22,21 @@ const styles = StyleSheet.create({
 	  fontSize: 30,
 	},
 	title: {
-		marginBottom: 30,
-		fontSize: 55,
-	},
-	counter: {
 		marginBottom: 15,
-		fontSize: 100,
-		color: 'orange',
+		fontSize: 40,
 	},
 	button: {
 	    backgroundColor: '#c0c0d0',
-		borderRadius: 2,
-		width: 75,
-		height: 75,
-		justifyContent: 'center',
-		margin: 30,
+		borderRadius: 5,
+		width: 40,
+		height: 44,
 	},
 	buttonText: {
 		textAlign: 'center',
 		color: '#000000',
 		fontSize: 30,
 		fontWeight: 'bold',
-		
 	},
-	buttonContainer: {
-		flexDirection: 'row'
-	}
   });
 
   export default styles
