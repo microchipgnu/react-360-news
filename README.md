@@ -4,7 +4,7 @@ React360 app just for fun and testing.
 
 ## Concept
 
-<img src="https://i.imgur.com/x4cCa9B.png" alt="" data-canonical-src="https://i.imgur.com/x4cCa9B.png" width="350" height="300" />
+<img src="https://i.imgur.com/x4cCa9B.png" alt="" data-canonical-src="https://i.imgur.com/x4cCa9B.png" width="400" height="300" />
 
 ## Version 1.0
 
