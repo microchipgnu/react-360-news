@@ -17,7 +17,11 @@ class Secondary extends React.Component {
 
 	changeTextColor = () => {
 		let newColorIndex = this.state.currentColorIndex
+
 		newColorIndex++
+
+		newColorIndex = newColorIndex > COLORS.length ? 0 : newColorIndex
+
 		console.log(newColorIndex)
 		this.setState({
 			currentColorIndex: newColorIndex
@@ -27,9 +31,11 @@ class Secondary extends React.Component {
 	render() {
 		return (
 		<View style={styles.panel}>
-			<Text style={{color: COLORS[this.state.currentColorIndex]}}>
-				I've been thinking about developing a VR website for so long. This was my first try. I hope you enjoy.
-			</Text>
+			<View style={styles.textContainer}>
+				<Text style={{fontSize:40, color: COLORS[this.state.currentColorIndex]}}>
+					I've been thinking about developing a VR website for so long. This was my first try. I hope you enjoy.
+				</Text>
+			</View>
 			<VrButton onClick={this.changeTextColor} style={styles.button}/>
 		</View>
 		);

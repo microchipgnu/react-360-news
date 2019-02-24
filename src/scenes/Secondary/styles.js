@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
 		backgroundColor: 'rgba(255, 255, 255, 0.4)',
 		justifyContent: 'center',
 		alignItems: 'center',
+		flex: 1,
 	},
 	greetingBox: {
 		padding: 20,
@@ -23,13 +24,15 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		marginBottom: 15,
-		fontSize: 40,
+		fontSize: 70,
 	},
 	button: {
 	    backgroundColor: '#c0c0d0',
 		borderRadius: 5,
 		width: 40,
 		height: 44,
+		width: '100%',
+		flex: 0.2,
 	},
 	buttonText: {
 		textAlign: 'center',
@@ -37,6 +40,10 @@ const styles = StyleSheet.create({
 		fontSize: 30,
 		fontWeight: 'bold',
 	},
+	textContainer: {
+		width: '100%',
+		flex: 0.8,
+	}
   });
 
   export default styles
