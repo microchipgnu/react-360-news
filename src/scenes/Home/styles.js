@@ -13,29 +13,24 @@ const styles = StyleSheet.create({
 	},
 	greetingBox: (elapsed, total) => ({
 		padding: 20,
-		backgroundColor: `rgba(255, 255, 255, 0.5)`,
+		backgroundColor: `rgba(255, 255, 255, 1)`,
 		borderColor: '#639dda',
 		borderWidth: 2,
 		marginTop: 5,
 	}),
 	greeting: {
 	  fontSize: 30,
+	  textAlign: 'center',
 	},
 	title: {
 		backgroundColor: 'rgba(255, 255, 255, 0)',
-		fontSize: 55,
+		fontSize: 30,
+		color: '#fff',
 		textAlign: 'center',
-		fontWeight: 'bold',
 	},
 	textContainer: {
 		justifyContent: 'center',
 		alignItems: 'center',
-	},
-	footerContainer: {
-		justifyContent: 'flex-end',
-	},
-	headerContainer: {
-		justifyContent: 'flex-start',
 	},
 	gazeButton: {
 		backgroundColor: 'rgba(255, 255, 255, 0)',
@@ -44,12 +39,16 @@ const styles = StyleSheet.create({
 		width: '100%',
 		height: 100,
 	},
-	newsContainer:{
+	titleContainer:{
 		flex: 0.2,
+		backgroundColor: 'rgba(0,0,0, 1)',
+		justifyContent: 'center',
+		width: '100%',
 	},
 	bodyContainer:{
 		justifyContent: 'flex-start',
 		flexDirection: 'row',
+		justifyContent: 'center',
 		flex: 0.8,
 	},
 	image:{ 
@@ -61,6 +60,7 @@ const styles = StyleSheet.create({
 		backgroundColor: 'rgba(255, 255, 255, 0.2)',
 		fontSize: 40,
 		flex: 0.8,
+		fontWeight: 'bold',
 	},
   });
 

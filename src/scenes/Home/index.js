@@ -36,8 +36,6 @@ class Home extends React.Component {
 		isLoading: false,
 
 		currentIndex: 0,
-		previousNewsUrl: '',
-		nextNewsUri: '',
 
 		news: [],
 
@@ -47,20 +45,21 @@ class Home extends React.Component {
 	}
 
 	componentWillMount = () => {
-		this.fetchNews('worldnews')
+		this.fetchNews('bitcoin')
 	}
 
 	fetchNews = async (source) => {
 		try {
 		  let response = await fetch(
-			'https://www.reddit.com/r/funnyandsad.json',
+			`https://newsapi.org/v2/everything?q=${source}&from=2019-01-24&sortBy=publishedAt&apiKey=5019130324db4f7b98443775a702faaf`,
 		  );
 		  let responseJson = await response.json();
-			console.log(responseJson.data.children[0].data.title)
+			console.log(responseJson)
 		  this.setState({
-			  news: responseJson.data.children,
-			  title: responseJson.data.children[0].data.domain,
-			  text: responseJson.data.children[0].data.title
+			  news: responseJson.articles,
+			  title: responseJson.articles[0].title,
+			  text: responseJson.articles[0].description,
+			  imageUrl: responseJson.articles[0].urlToImage
 		  })
 		} catch (error) {
 		  console.error(error);
@@ -70,19 +69,20 @@ class Home extends React.Component {
 	loadNews = (index) => {
 		this.setState({
 			currentIndex: index,
-			title: this.state.news[index].data.domain,
-			text: this.state.news[index].data.title
+			title: this.state.news[index].title,
+			text: this.state.news[index].description,
+			imageUrl: this.state.news[index].urlToImage
 		})
 	}
 
 	loadNext = async () => {
-		this.state.nextNewsUri === 'lastOne' 
+		this.state.currentIndex === this.state.news.length 
 			? this.fetchNews('news') 
 			: this.loadNews(this.state.currentIndex + 1)
 	}
 
 	loadPrevious = async () => {
-		this.state.nextNewsUri === 'lastOne' 
+		this.state.currentIndex === 0 
 			? this.fetchNews('news') 
 			: this.loadNews(this.state.currentIndex - 1)
 	}
@@ -91,26 +91,30 @@ class Home extends React.Component {
 	const { gazed, title, imageUrl, text, isLoading } = this.state;
     return (
       <View style={styles.panel}>
-		<View style={styles.headerContainer}>
-			<GazeButton
-				duration={1500}
-				onClick={this.loadPrevious}
-				render={(remainingTime, isGazed) => (
-					<View style={styles.greetingBox}>
+		<GazeButton
+			duration={1000}
+			onClick={this.loadPrevious}
+			render={(remainingTime, isGazed) => {
+
+				const opacity = 1 - (remainingTime/1000)
+
+				return (
+					<View style={[styles.greetingBox, {backgroundColor: `rgba(255,255,255,${opacity})`, justifyContent: 'flex-start', }]}>
 						<Text style={styles.greeting}>
 							{gazed
 							? "You have gazed me"
 							: isGazed
-								? remainingTime
-								: "Load previous..."}
+								? "..."
+								: "back"}
 						</Text>
 					</View>
 				)}
-				style={styles.gazeButton}
-			/>
-		</View>
+			}
+			style={styles.gazeButton}
+		/>
 
-		<View style={styles.newsContainer}>
+
+		<View style={styles.titleContainer}>
 			<Text style={styles.title}>
 				{title}
 			</Text>
@@ -122,25 +126,27 @@ class Home extends React.Component {
 				</Text>
 		</View>
 
-		<View style={styles.footerContainer}>
-			<GazeButton
-				duration={1500}
-				onClick={this.loadNext}
-				render={(remainingTime, isGazed) => (
-					<View style={styles.greetingBox}>
+		<GazeButton
+			duration={1000}
+			onClick={this.loadNext}
+			render={(remainingTime, isGazed) => {
+
+				const opacity = 1 - (remainingTime/1000)
+
+				return (
+					<View style={[styles.greetingBox, {backgroundColor: `rgba(255,255,255,${opacity})`, justifyContent: 'flex-end', }]}>
 						<Text style={styles.greeting}>
 							{gazed
 							? "You have gazed me"
 							: isGazed
-								? remainingTime
-								: "Load next..."}
+								? "..."
+								: "next"}
 						</Text>
 					</View>
 				)}
-				style={styles.gazeButton}
-			/>
-		</View>
-		
+			}
+			style={styles.gazeButton}
+		/>		
 	</View>
     );
   }
