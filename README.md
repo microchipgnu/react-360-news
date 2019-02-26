@@ -1,5 +1,5 @@
-# react360-test
-React360 app just for fun and testing.
+# vr-news
+React360 app for watching news the immersive way.
 
 
 ## Concept
@@ -17,7 +17,7 @@ Check out the YouTube video
 
 ## Roadmap
 
-- Make tutorial @ Médium
+- Make tutorial @ Medium
 - Development :computer:
   - User curated news sources
   - News API
