@@ -5,7 +5,7 @@ import {
   Image
 } from 'react-360';
 
-// import fetchNews from '../../services/api/'
+import fetchNews from '../../services/api/'
 
 import GazeButton from '../../components/GazeButton';
 
@@ -40,18 +40,18 @@ class Home extends React.Component {
 		news: [],
 
 		title: 'Default title',
-		imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png',
-		text: 'Lore Ipsum asdasdasda askdnaksdj akjsdnakjsd',
+		imageUrl: '',
+		text: 'Default description',
 	}
 
 	componentWillMount = () => {
-		this.fetchNews('bitcoin')
+		this.fetchNews('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5019130324db4f7b98443775a702faaf')
 	}
 
-	fetchNews = async (source) => {
+ 	fetchNews = async (source) => {
 		try {
 		  let response = await fetch(
-			`https://newsapi.org/v2/everything?q=${source}&from=2019-01-24&sortBy=publishedAt&apiKey=5019130324db4f7b98443775a702faaf`,
+			source,
 		  );
 		  let responseJson = await response.json();
 			console.log(responseJson)

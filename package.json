@@ -10,7 +10,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "react": "16.3.2",
     "react-360": "~1.1.0",
     "react-360-web": "~1.1.0",

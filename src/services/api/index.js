@@ -1,16 +1,19 @@
-import axios from 'axios'
 
-// const subreddits = ['worldnews', 'news'] 
-
-const base_url = 'https://www.reddit.com/r/'
-
-const  _makeRedditUrl = (subreddit) => (base_url + subreddit + '.json')
-
-
-export default fetchNews = async (subreddit) => {
-	const url = _makeRedditUrl(subreddit)
-
-	await axios.get(url).then(response => {
-		return response
-	})
+export default fetchNews = async (source) => {
+	try {
+	  let response = await fetch(
+		source,
+	  );
+	  let responseJson = await response.json();
+		console.log(responseJson)
+	  this.setState({
+		  news: responseJson.articles,
+		  title: responseJson.articles[0].title,
+		  text: responseJson.articles[0].description,
+		  imageUrl: responseJson.articles[0].urlToImage
+	  })
+	} catch (error) {
+	  console.error(error);
+	}
 }
+
