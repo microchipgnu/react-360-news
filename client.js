@@ -13,10 +13,6 @@ function init(bundle, parent, options = {}) {
 
   const leftPanel = new Surface(1000, 600, Surface.SurfaceShape.Cylinder);
 
-  const rightPanel = new Surface(300, 600, Surface.SurfaceShape.Flat);
-  rightPanel.setAngle(0.6, 0);
-  rightPanel.setOpacity(0.5)
-
   r360.renderToSurface(
     r360.createRoot('Home', { /* initial props */ }),
     leftPanel,
