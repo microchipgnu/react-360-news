@@ -5,8 +5,6 @@ import {
   Image
 } from 'react-360';
 
-import fetchNews from '../../services/api/'
-
 import GazeButton from '../../components/GazeButton';
 
 import styles from './styles'
