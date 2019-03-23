@@ -17,7 +17,7 @@ Check out the YouTube video
 
 ## Roadmap
 
-- Make tutorial @ Medium
+- Make tutorial @ Medium :ballot_box_with_check:
 - Development :computer:
   - User curated news sources
   - News API
