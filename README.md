@@ -1,5 +1,5 @@
 # vr-news
-React360 app for watching news the immersive way.
+React360 app for reading the news the immersive way.
 
 
 ## Concept
